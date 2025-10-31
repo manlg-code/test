@@ -2,7 +2,7 @@
 
 repo=$(curl https://github.com/manlg-code/ | grep class=\"repo\" | grep -Po "(?<=href=\").*?(?=\" )")
 repo_count=$(echo "$repo" | wc -l)
-clone_all=$(repo | while read reporead ; do git clone https://github.com"$reporead" ../../$reporead ; done)
+clone_all=$(echo "$repo" | while read reporead ; do git clone https://github.com"$reporead" ../../$reporead ; done)
 
 current_local-repo () {
 ls ../ | grep -v .
